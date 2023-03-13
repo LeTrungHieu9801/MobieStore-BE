@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.ecommerce.admin.UserAdmin;
+
 @Entity
 @Table(name = "tokens")
 public class AuthenticationToken {
@@ -30,14 +32,15 @@ public class AuthenticationToken {
     @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
-
+    
  
-
 	public AuthenticationToken(User user) {
         this.user = user;
         this.createdDate = new Date();
         this.token = UUID.randomUUID().toString();
     }
+	
+
 
     public Integer getId() {
         return id;
@@ -71,7 +74,8 @@ public class AuthenticationToken {
         this.user = user;
     }
 
-    public AuthenticationToken(Integer id, String Token, Date createdDate, User user) {
+
+	public AuthenticationToken(Integer id, String Token, Date createdDate, User user) {
         this.id = id;
         this.token = Token;
         this.createdDate = createdDate;

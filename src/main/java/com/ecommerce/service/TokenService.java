@@ -7,6 +7,7 @@ import javax.mail.AuthenticationFailedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ecommerce.admin.UserAdmin;
 import com.ecommerce.entity.AuthenticationToken;
 import com.ecommerce.entity.User;
 import com.ecommerce.repository.AuthenticationTokenRepository;
@@ -23,6 +24,7 @@ public class TokenService {
 		return tokenRepository.findByUser(user);
 	
 	}
+
 	
 	public User getUser(String token) 
 	{

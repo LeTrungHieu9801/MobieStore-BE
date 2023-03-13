@@ -1,5 +1,6 @@
 package com.ecommerce.dto.user;
 
+import com.ecommerce.admin.UserAdmin;
 import com.ecommerce.entity.User;
 
 public class SignInReposeDto {
@@ -7,6 +8,7 @@ public class SignInReposeDto {
 	private String status;
 	private String token;
 	private User user;
+	private UserAdmin admin;
 	
 	
 	public User getUser() {
@@ -26,6 +28,13 @@ public class SignInReposeDto {
 	}
 	public void setToken(String token) {
 		this.token = token;
+	}
+	
+	public UserAdmin getAdmin() {
+		return admin;
+	}
+	public void setAdmin(UserAdmin admin) {
+		this.admin = admin;
 	}
 	public SignInReposeDto(String status, String token, User user) {
 

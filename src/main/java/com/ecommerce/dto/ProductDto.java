@@ -6,6 +6,7 @@ public class ProductDto {
 	private String category;
 	private String productName;
 	private String image;
+	private String description;
 	 private int price;
 	 
 	 
@@ -21,6 +22,24 @@ public class ProductDto {
 		this.price = price;
 	}
 	
+	
+//	public ProductDto( Integer id, String category, String productName, String image, String description, int price) {
+//		this.id = id;
+//		this.category = category;
+//		this.productName = productName;
+//		this.image = image;
+//		this.description = description;
+//		this.price = price;
+//	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
 	public Integer getId() {
 		return id;
 	}

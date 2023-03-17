@@ -7,4 +7,6 @@ import com.ecommerce.entity.Product;
 
 public interface ProductRepository extends JpaRepository<Product, Integer>,JpaSpecificationExecutor<Product> {
 
+	boolean existsByProductName(String productName);
+
 }

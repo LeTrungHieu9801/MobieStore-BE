@@ -2,6 +2,7 @@ package com.ecommerce.entity;
 
 import java.util.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,8 +27,8 @@ public class Cart {
 	@JoinColumn(name = "user_id")
 	private User user;
 	
-	@ManyToOne
-	@JoinColumn(name = "product_id")
+	@ManyToOne()
+	@JoinColumn(name = "product_id", nullable = true)
 	private Product product;
 	
 	@Column(name = "created_date")

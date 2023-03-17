@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import com.ecommerce.dto.ProductDto;
 import com.ecommerce.entity.Product;
 import com.ecommerce.exceptions.ProductNotExistsException;
 import com.ecommerce.repository.ProductRepository;
@@ -48,5 +50,25 @@ public class ProductService {
 	public void addProduct(Product product)
 	{
 		productRepository.save(product);
+	}
+
+	public void deleteOne(Integer id) {
+		productRepository.deleteById(id);
+	}
+
+	public void createNewProduct( ProductDto productDto) {
+		if(productRepository.existsByProductName(productDto.getProductName()) == false)
+		{
+			Product product = new Product();
+			product.setCategory(productDto.getCategory());
+			product.setDescription(productDto.getDescription());
+			product.setProductName(productDto.getProductName());
+			product.setImage(productDto.getImage());
+			product.setPrice(productDto.getPrice());
+			productRepository.save(product);
+
+		} else {
+			throw new ProductNotExistsException("product is valid");
+		}
 	}
 }

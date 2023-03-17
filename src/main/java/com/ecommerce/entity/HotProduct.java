@@ -1,5 +1,6 @@
 package com.ecommerce.entity;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,8 +19,8 @@ import javax.persistence.Table;
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@OneToOne
-	@JoinColumn(name = "product_Id", referencedColumnName = "id")
+	@OneToOne()
+	@JoinColumn(name = "product_Id", referencedColumnName = "id",nullable = true)
 	private Product product;
 	
 	public Integer getId() {
